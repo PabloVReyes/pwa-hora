@@ -1,20 +1,75 @@
+/* Fondo y centrado */
 body {
-    font-family: Arial, sans-serif;
+    margin: 0;
+    font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    background-color: #282c34;
-    color: #61dafb;
+    background: linear-gradient(to bottom right, #0f172a, #334155);
 }
 
-.container {
+/* Caja principal */
+.clock-wrapper {
     text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 3rem;
+    padding: 3rem 4rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-#clock {
-    font-size: 4rem;
-    margin-top: 20px;
+/* Contenedor del reloj */
+.time-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Cada caja de número */
+.time-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 5rem;
     font-weight: bold;
+    font-variant-numeric: tabular-nums;
+    color: white;
+}
+
+/* Dos puntos */
+.colon {
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Fecha */
+.date-text {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+}
+
+/* Botón de instalación */
+.install-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1.2rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+.install-btn:hover {
+    background-color: #2563eb;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
 }

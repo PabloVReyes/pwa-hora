@@ -4,26 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PWA - Hora Actual</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Reloj PWA</title>
     <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#334155">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>PWA - Hora Actual</h1>
-        <p id="clock">00:00:00</p>
-        <h2>Pablo Vazquez Reyes</h2>
+        <div class="clock-wrapper">
+            <div class="time-container">
+                <div class="time-box" id="hours">00</div>
+                <div class="colon">:</div>
+                <div class="time-box" id="minutes">00</div>
+                <div class="colon">:</div>
+                <div class="time-box" id="seconds">00</div>
+            </div>
+            <p id="date" class="date-text"></p>
+            <p class="date-text">Pablo Vazquez Reyes</p>
+            <button id="installBtn" class="install-btn">📱 Instalar Aplicación</button>
+        </div>
     </div>
 
     <script src="app.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-                .then(() => console.log('Service Worker registrado'))
-                .catch(err => console.log('Service Worker no registrado', err));
-        }
-    </script>
+    <script src="sw-register.js"></script>
 </body>
 
 </html>

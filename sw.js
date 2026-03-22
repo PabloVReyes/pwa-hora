@@ -1,12 +1,18 @@
-self.addEventListener('install', event => {
-    console.log('Service Worker instalado');
-    self.skipWaiting();
+const CACHE_NAME = 'reloj-pwa-v1';
+const urlsToCache = [
+    './',
+    './index.html',
+    './style.css',
+    './app.js',
+    './manifest.json',
+    './icon-192.png',
+    './icon-512.png'
+];
+
+self.addEventListener('install', e => {
+    e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache)));
 });
 
-self.addEventListener('activate', event => {
-    console.log('Service Worker activado');
-});
-
-self.addEventListener('fetch', event => {
-    event.respondWith(fetch(event.request));
+self.addEventListener('fetch', e => {
+    e.respondWith(caches.match(e.request).then(resp => resp || fetch(e.request)));
 });
