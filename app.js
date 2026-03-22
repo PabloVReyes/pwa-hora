@@ -21,7 +21,6 @@ updateClock(); // inicializar al cargar
 // Botón de instalación PWA
 let deferredPrompt;
 const installBtn = document.getElementById('installBtn');
-installBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
