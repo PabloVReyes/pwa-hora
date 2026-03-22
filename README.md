@@ -25,8 +25,7 @@ Este proyecto es una **Progressive Web App (PWA)** que muestra la hora actual en
 | `sw.js`            | Service Worker para cacheo offline y funcionamiento como PWA. |
 | `sw-register.js`   | Registro del Service Worker en el navegador. |
 | `manifest.json`    | Configuración de la PWA (nombre, iconos, colores, orientación). |
-| `icon-192.png`     | Icono de la app tamaño 192x192 px. |
-| `icon-512.png`     | Icono de la app tamaño 512x512 px. |
+| `icon.png`     | Icono de la app |
 
 ---
 

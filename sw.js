@@ -1,22 +1,15 @@
-const CACHE_NAME = 'pwa-clock-cache-v1';
-const urlsToCache = [
-    '/',
-    '/index.html',
-    '/style.css',
-    '/app.js',
-    '/manifest.json',
-    '/icon-192.png',
-    '/icon-512.png'
-];
-
 self.addEventListener('install', (event) => {
-    event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
-    );
+    console.log('Service Worker instalado');
+    self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+    console.log('Service Worker activado');
 });
 
 self.addEventListener('fetch', (event) => {
+    // PWA offline cache simple
     event.respondWith(
-        caches.match(event.request).then(response => response || fetch(event.request))
+        fetch(event.request).catch(() => caches.match(event.request))
     );
 });

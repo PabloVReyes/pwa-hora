@@ -1,7 +1,6 @@
 {
     "name": "Reloj PWA",
     "short_name": "Reloj",
-    "description": "Muestra la hora actual con estilo moderno",
     "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#0f172a",
@@ -9,12 +8,12 @@
     "orientation": "portrait",
     "icons": [
         {
-            "src": "icon-192.png",
+            "src": "icon.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "icon-512.png",
+            "src": "icon.png",
             "sizes": "512x512",
             "type": "image/png"
         }
