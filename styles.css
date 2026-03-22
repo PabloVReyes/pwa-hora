@@ -1,61 +1,52 @@
 /* Reset básico */
-body,
-html {
+* {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body,
+html {
     height: 100%;
-}
-
-/* Contenedor principal */
-.size-full {
-    height: 100vh;
-    width: 100%;
-}
-
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.bg-gradient {
+    font-family: 'Arial', sans-serif;
     background: linear-gradient(to bottom right, #0f172a, #334155);
 }
 
-.text-center {
-    text-align: center;
+.container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Card principal */
 .card {
+    text-align: center;
     background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    border-radius: 3rem;
-    padding: 2rem 3rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 2rem;
+    padding: 3rem 4rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     max-width: 95%;
 }
 
-/* Contenedor del reloj */
-.time-container {
+/* Clock */
+.clock {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.time-box {
+.time-segment {
     background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
     padding: 1rem 2rem;
     border-radius: 1rem;
     font-size: 4rem;
     font-weight: bold;
     color: white;
-    font-variant-numeric: tabular-nums;
     min-width: 80px;
     text-align: center;
 }
@@ -64,43 +55,53 @@ html {
     font-size: 3rem;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.6);
-    display: flex;
-    align-items: center;
 }
 
-/* Fecha */
+/* Date */
 .date {
+    font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    word-wrap: break-word;
+    margin-bottom: 2rem;
 }
 
-/* Botón instalar */
+/* Botón de instalación */
 .install-btn {
-    padding: 0.75rem 1.5rem;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
     background-color: #3b82f6;
     color: white;
-    font-size: 1rem;
     border: none;
     border-radius: 1rem;
     cursor: pointer;
-    transition: all 0.2s;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
 .install-btn:hover {
     background-color: #2563eb;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Media Queries para Responsividad */
+/* Hint iOS */
+.ios-hint {
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    display: none;
+    /* se mostrará solo en iOS */
+    line-height: 1.4;
+}
 
-/* Tablets */
-@media (max-width: 768px) {
-    .time-box {
+/* Responsivo */
+@media(max-width:600px) {
+    .clock {
+        gap: 0.5rem;
+    }
+
+    .time-segment {
         font-size: 3rem;
-        padding: 0.75rem 1.5rem;
+        padding: 0.5rem 1rem;
+        min-width: 60px;
     }
 
     .separator {
@@ -108,27 +109,6 @@ html {
     }
 
     .card {
-        padding: 1.5rem 2rem;
-    }
-}
-
-/* Móviles */
-@media (max-width: 480px) {
-    .time-box {
-        font-size: 2.5rem;
-        padding: 0.5rem 1rem;
-        min-width: 60px;
-    }
-
-    .separator {
-        font-size: 1.5rem;
-    }
-
-    .date {
-        font-size: 1rem;
-    }
-
-    .card {
-        padding: 1rem 1.5rem;
+        padding: 2rem 1.5rem;
     }
 }

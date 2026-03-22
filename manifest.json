@@ -1,6 +1,7 @@
 {
     "name": "Reloj PWA",
     "short_name": "Reloj",
+    "description": "Aplicación PWA que muestra la hora en tiempo real",
     "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#0f172a",

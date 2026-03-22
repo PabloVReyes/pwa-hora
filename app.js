@@ -1,4 +1,4 @@
-// Reloj que se actualiza cada segundo
+// ===== RELOJ =====
 function updateClock() {
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
@@ -9,39 +9,51 @@ function updateClock() {
     document.getElementById('minutes').textContent = minutes;
     document.getElementById('seconds').textContent = seconds;
 
-    document.getElementById('date').textContent = now.toLocaleDateString('es-ES', {
+    const dateStr = now.toLocaleDateString('es-ES', {
         weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
     });
+    document.getElementById('date').textContent = dateStr;
 }
 
 setInterval(updateClock, 1000);
-updateClock();
+updateClock(); // inicializa al cargar
 
-// PWA Install Button
+// ===== PWA INSTALL =====
 let deferredPrompt;
 const installBtn = document.getElementById('installBtn');
-installBtn.style.display = 'none'; // oculto por defecto
+const iosHint = document.getElementById('iosHint');
 
+// Detecta iOS
+const isIos = /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
+const isInStandaloneMode = ('standalone' in window.navigator) && window.navigator.standalone;
+
+if (isIos && !isInStandaloneMode) {
+    iosHint.style.display = 'block';
+    installBtn.style.display = 'none';
+}
+
+// Detecta Android/Chrome
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    installBtn.style.display = 'inline-block'; // mostrar botón
+    installBtn.style.display = 'inline-block';
 });
 
 installBtn.addEventListener('click', async () => {
     if (deferredPrompt) {
         deferredPrompt.prompt();
         const choiceResult = await deferredPrompt.userChoice;
+        console.log(choiceResult.outcome);
         deferredPrompt = null;
         installBtn.style.display = 'none';
     } else {
-        alert('La instalación no está disponible en este momento.');
+        alert('Instalación no disponible actualmente.');
     }
 });
 
-// Service Worker
+// ===== SERVICE WORKER =====
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js')
         .then(() => console.log('Service Worker registrado'))
-        .catch(err => console.log('Error SW:', err));
+        .catch((err) => console.error('Error SW:', err));
 }

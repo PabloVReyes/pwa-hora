@@ -10,20 +10,25 @@
 </head>
 
 <body>
-    <div class="size-full flex-center bg-gradient">
-        <div class="text-center">
-            <div class="card">
-                <div class="time-container">
-                    <div class="time-box" id="hours">00</div>
-                    <span class="separator">:</span>
-                    <div class="time-box" id="minutes">00</div>
-                    <span class="separator">:</span>
-                    <div class="time-box" id="seconds">00</div>
-                </div>
-                <p class="date" id="date"></p>
-                <p class="date">Pablo Vazquez Reyes</p>
-                <button id="installBtn" class="install-btn">📱 Instalar Aplicación</button>
+    <div class="container">
+        <div class="card">
+            <div class="clock">
+                <div class="time-segment" id="hours">00</div>
+                <div class="separator">:</div>
+                <div class="time-segment" id="minutes">00</div>
+                <div class="separator">:</div>
+                <div class="time-segment" id="seconds">00</div>
             </div>
+            <p class="date" id="date">fecha</p>
+
+            <!-- Botón de instalación para Android/Chrome -->
+            <button id="installBtn" class="install-btn">📱 Instalar Aplicación</button>
+
+            <!-- Mensaje para usuarios iOS -->
+            <p id="iosHint" class="ios-hint">
+                📱 Para instalar esta app en iOS: toca el botón de compartir y selecciona "Agregar a pantalla de
+                inicio".
+            </p>
         </div>
     </div>
 
