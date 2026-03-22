@@ -1,3 +1,4 @@
+/* Reset básico */
 body,
 html {
     margin: 0;
@@ -6,6 +7,7 @@ html {
     height: 100%;
 }
 
+/* Contenedor principal */
 .size-full {
     height: 100vh;
     width: 100%;
@@ -25,21 +27,25 @@ html {
     text-align: center;
 }
 
+/* Card principal */
 .card {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     border-radius: 3rem;
-    padding: 3rem 4rem;
+    padding: 2rem 3rem;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 95%;
 }
 
+/* Contenedor del reloj */
 .time-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
 .time-box {
@@ -50,6 +56,8 @@ html {
     font-weight: bold;
     color: white;
     font-variant-numeric: tabular-nums;
+    min-width: 80px;
+    text-align: center;
 }
 
 .separator {
@@ -60,12 +68,15 @@ html {
     align-items: center;
 }
 
+/* Fecha */
 .date {
     color: rgba(255, 255, 255, 0.7);
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
+    word-wrap: break-word;
 }
 
+/* Botón instalar */
 .install-btn {
     padding: 0.75rem 1.5rem;
     background-color: #3b82f6;
@@ -81,4 +92,43 @@ html {
 .install-btn:hover {
     background-color: #2563eb;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Media Queries para Responsividad */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .time-box {
+        font-size: 3rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .separator {
+        font-size: 2rem;
+    }
+
+    .card {
+        padding: 1.5rem 2rem;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .time-box {
+        font-size: 2.5rem;
+        padding: 0.5rem 1rem;
+        min-width: 60px;
+    }
+
+    .separator {
+        font-size: 1.5rem;
+    }
+
+    .date {
+        font-size: 1rem;
+    }
+
+    .card {
+        padding: 1rem 1.5rem;
+    }
 }
